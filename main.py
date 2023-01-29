@@ -10,11 +10,11 @@ def download(link,res,option):
     #taking link and res as input
     # link = input("Enter the Youtube Video URL : ")
     # res=input ("Resolution e.g-2160p,1440p,4320p etc : ")
-    # option=int(input('''To get Audio - Type 1 \nTo get Video - Type 2 \nTo get Both -  Type 3 \nYour Option No - '''))
+    # option=int(input('''To get Audio - Type 1 \nTo get Video - Type 2 \nTo get Both -'''))
     #creating a  object of youtube video
     yt = YouTube(link)
     
-    
+
     audio = yt.streams.get_by_itag(yt.streams.filter(type="audio")[0].itag)
     
     
