@@ -7,7 +7,7 @@
   <h3 align="center">Youtube Video And Music Downloader</h3>
 
   <p align="center">
-    Download any Youtube video and music in highest quality 
+    Download copyright-free Youtube video and music in highest quality 
     <br/>
     <br/>
   </p>
