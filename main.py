@@ -27,10 +27,12 @@ def download(link,res,option):
     #to change the file name of audio
     global q
     q=Path(a)
-    global w
-    w=Path(a)
+   
     q=q.rename(q.with_name("Audio"+k+".mp3"))
-    w=q
+    global w
+    a=audio.download()
+    w=Path(a)
+    w=w.rename(w.with_name("Audio"+k+".mp4"))
     if (option==2):
         video = yt.streams.get_by_itag(yt.streams.filter(res=res,type="video")[0].itag)
         b=video.download()
@@ -46,8 +48,8 @@ def download(link,res,option):
           
         p="Cache"+k+".mp4"
         q="Audio"+k+".mp3"
-        global w
-        w="Video1"+k+".mp4"
+        
+        w="Audio"+k+".mp4"
         global z
         z="Bhoot"+"k"+".mp4"
         import subprocess  
