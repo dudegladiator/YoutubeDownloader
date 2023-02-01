@@ -1,1 +1,3 @@
--c conda-forge ffmpeg
+name: stats
+dependencies:
+  - ffmpeg
