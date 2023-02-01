@@ -66,7 +66,7 @@ if (a):
     if option==2:
         
         
-        with open("YoutubeVideo.mp4",'rb') as f:
+        with open(o,'rb') as f:
             video_bytes = f.read()
 
             st.video(video_bytes)
