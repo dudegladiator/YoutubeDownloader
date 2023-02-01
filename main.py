@@ -64,7 +64,7 @@ if (a):
     download(link,res,option)
     if option==2:
         
-        o=str(os.getcwd())+"\YoutubeVideo.mp4"
+        o=str(os.getcwd())+"YoutubeVideo.mp4"
         with open(o, 'rb') as f:
             st.download_button('Save Video', f, file_name='YoutubeVideo.mp4')
             
