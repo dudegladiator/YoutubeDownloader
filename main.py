@@ -40,7 +40,7 @@ def download(link,res,option):
         p='Cache.mp4'
         q='Audio.mp3'
         
-        subprocess.call(f"ffmpeg -i {p} -i {q}  -c copy YoutubeVideo.mp4",shell=True)
+        
         
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(90)
@@ -60,8 +60,8 @@ a=st.button("Start Downloading")
 if (a):
     download(link,res,option)
     if option==2:
-        z="YoutubeVideo.mp4"
-        with open(z, 'rb') as f:
+        subprocess.call(f"ffmpeg -i {p} -i {q}  -c copy YoutubeVideo.mp4",shell=True)
+        with open('YoutubeVideo.mp4', 'rb') as f:
             st.download_button('Save Video', f, file_name='YoutubeVideo.mp4')
             
     else :
