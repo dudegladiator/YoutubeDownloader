@@ -24,7 +24,7 @@ def download(link,res,option):
     bar.progress(30)
     #to change the file name of audio
     global q
-     q=Path(a)
+    q=Path(a)
     q=q.rename(q.with_name("Audio.mp3"))
     if (option==2):
         video = yt.streams.get_by_itag(yt.streams.filter(res=res,type="video")[0].itag)
