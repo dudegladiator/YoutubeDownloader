@@ -21,14 +21,14 @@ def download(link,res,option):
     
     
     a=audio.download()
-    v=audio.download()
+    
     latest_iteration.text(f'{int(time.time()-e)} Second')
     bar.progress(30)
     #to change the file name of audio
     global q
     q=Path(a)
     global w
-    w=Path(v)
+    w=Path(a)
     q=q.rename(q.with_name("Audio"+"k"+".mp3"))
     w=w.rename(w.with_name("Video1"+"k"+".mp4"))
     if (option==2):
