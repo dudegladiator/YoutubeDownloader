@@ -2,5 +2,4 @@ pytube
 pathlib
 streamlit
 ffmpeg
-ffmpeg-python
-python-ffmpeg
+
