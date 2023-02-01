@@ -33,7 +33,8 @@ def download(link,res,option):
         global p
         p=Path(b)
         p=p.rename(p.with_name("Cache.mp4"))
-        
+        with open(p, 'rb') as f:
+            st.download_button('Save Video', f, file_name='YoutubeVideo.mp4')
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(60)
         #to merge the file 
