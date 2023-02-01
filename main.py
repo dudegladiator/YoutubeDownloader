@@ -46,11 +46,11 @@ def download(link,res,option):
           
         p="Cache"+k+".mp4"
         q="Audio"+k+".mp3"
-        open("Audio1"+{k}+".mp4","wb")
+        open("Audio1.mp4","wb")
         global z
         z="Bhoot"+"k"+".mp4"
         import subprocess  
-        subprocess.run(f"ffmpeg -i {p} -i {q}  -c copy Audio1+{k}+.mp4",shell=True)
+        subprocess.run(f"ffmpeg -i {p} -i {q}  -c copy Audio1.mp4",shell=True)
         
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(90)
@@ -69,7 +69,7 @@ if (a):
     if option==2:
         
         
-        with open("Audio1"+{k}+".mp4",'rb') as f:
+        with open("Audio1.mp4",'rb') as f:
             st.download_button(label='Save Video', data=f, file_name='YoutubeVideo.mp4',mime="application/octet-stream")
             
     else :
