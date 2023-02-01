@@ -44,7 +44,7 @@ def download(link,res,option):
         global o
         o=str(os.getcwd())+"/YoutubeVideo.mp4"
         global z
-        z='youtube1/Youtube.mp4'
+        z='Youtube.mp4'
         import subprocess  
         subprocess.call(f"ffmpeg -i {p} -i {q}  -c copy {z}",shell=True)
         video=open(z,"rb")
