@@ -46,6 +46,7 @@ def download(link,res,option):
           
         p="Cache"+k+".mp4"
         q="Audio"+k+".mp3"
+        global w
         w="Video1"+k+".mp4"
         global z
         z="Bhoot"+"k"+".mp4"
