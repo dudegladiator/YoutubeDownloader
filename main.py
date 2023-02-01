@@ -44,7 +44,7 @@ def download(link,res,option):
         global o
         o=str(os.getcwd())+"/YoutubeVideo.mp4"
         import subprocess  
-        subprocess.call(f"ffmpeg -i {p} -i {q}  -c copy YoutubeVideo.mp4",shell=True)
+        subprocess.call(f"ffmpeg -i {p} -i {q}  -c copy {o}",shell=True)
         
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(90)
