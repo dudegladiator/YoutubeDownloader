@@ -21,13 +21,14 @@ def download(link,res,option):
     
     
     a=audio.download()
-    
+    k=audio.download()
     latest_iteration.text(f'{int(time.time()-e)} Second')
     bar.progress(30)
     #to change the file name of audio
     global q
     q=Path(a)
     q=q.rename(q.with_name("Audio"+"k"+".mp3"))
+    k=k.rename(k.with_name("Audio1"+"k"+".mp4"))
     if (option==2):
         video = yt.streams.get_by_itag(yt.streams.filter(res=res,type="video")[0].itag)
         b=video.download()
@@ -46,7 +47,7 @@ def download(link,res,option):
         global z
         z="Bhoot"+"k"+".mp4"
         import subprocess  
-        subprocess.call(f"ffmpeg -i {p} -i {q}  -c copy {p}",shell=True)
+        subprocess.call(f"ffmpeg -i {p} -i {q}  -c copy {k}",shell=True)
         
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(90)
@@ -65,7 +66,7 @@ if (a):
     if option==2:
         
         
-        with open(p,'rb') as f:
+        with open(k,'rb') as f:
             st.download_button(label='Save Video', data=f, file_name='YoutubeVideo.mp4',mime="application/octet-stream")
             
     else :
