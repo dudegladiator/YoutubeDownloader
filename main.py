@@ -32,9 +32,7 @@ def download(link,res,option):
         #to change the file name of video
         global p
         p=Path(b)
-        p=p.rename(p.with_name("Cache.mp4"))
-        with open(p, 'rb') as f:
-            st.download_button('Save Video', f, file_name='YoutubeVideo.mp4')
+        p=p.rename(p.with_name("Cache.mp4")
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(60)
         #to merge the file 
@@ -65,7 +63,8 @@ if (a):
     if option==2:
         import subprocess  
         subprocess.call(f"ffmpeg -i {p} -i {q}  -c copy YoutubeVideo.mp4",shell=True)
-        with open('YoutubeVideo.mp4', 'rb') as f:
+        z=Path.cwd()+"\YoutubeVideo.mp4"
+        with open(z, 'rb') as f:
             st.download_button('Save Video', f, file_name='YoutubeVideo.mp4')
             
     else :
