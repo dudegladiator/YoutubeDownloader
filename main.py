@@ -30,7 +30,7 @@ def download(link,res,option):
     global w
     w=Path(v)
     q=q.rename(q.with_name("Audio"+"k"+".mp3"))
-    w=w.rename(w.with_name("Audio1"+"k"+".mp4"))
+    w=w.rename(w.with_name("Video1"+"k"+".mp4"))
     if (option==2):
         video = yt.streams.get_by_itag(yt.streams.filter(res=res,type="video")[0].itag)
         b=video.download()
@@ -46,7 +46,7 @@ def download(link,res,option):
           
         p="Cache"+"k"+".mp4"
         q="Audio"+"k"+".mp3"
-        w="Video"+"k"+".mp4"
+        w="Video1"+"k"+".mp4"
         global z
         z="Bhoot"+"k"+".mp4"
         import subprocess  
