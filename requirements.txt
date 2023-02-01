@@ -1,3 +1,4 @@
+--upgrade pip
 pytube
 pathlib
 ffmpeg-python
