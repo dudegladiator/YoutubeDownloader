@@ -15,6 +15,7 @@ def download(link,res,option):
     # option=int(input('''To get Audio - Type 1 \nTo get Video - Type 2 \nTo get Both -'''))
     #creating a  object of youtube video
     yt = YouTube(link)
+    global k
     k=str(random.randrange(100))
 
     audio = yt.streams.get_by_itag(yt.streams.filter(type="audio")[0].itag)
@@ -30,9 +31,6 @@ def download(link,res,option):
    
     q=q.rename(q.with_name("Audio"+k+".mp3"))
     global w
-    a=audio.download()
-    w=Path(a)
-    w=w.rename(w.with_name("Audio1"+k+".mp4"))
     if (option==2):
         video = yt.streams.get_by_itag(yt.streams.filter(res=res,type="video")[0].itag)
         b=video.download()
@@ -48,8 +46,6 @@ def download(link,res,option):
           
         p="Cache"+k+".mp4"
         q="Audio"+k+".mp3"
-        
-        w="Audio1"+k+".mp4"
         global z
         z="Bhoot"+"k"+".mp4"
         import subprocess  
@@ -72,7 +68,7 @@ if (a):
     if option==2:
         
         
-        with open(w,'rb') as f:
+        with open("Audio1"+{k}+".mp4",'rb') as f:
             st.download_button(label='Save Video', data=f, file_name='YoutubeVideo.mp4',mime="application/octet-stream")
             
     else :
