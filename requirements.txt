@@ -3,5 +3,6 @@ pathlib
 python-ffmpeg
 streamlit
 ffmpeg
+ffmpeg-python
 
 
