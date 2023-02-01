@@ -42,8 +42,6 @@ def download(link,res,option):
           
         p="Cache"+"k"+".mp4"
         q="Audio"+"k"+".mp3"
-        global o
-        o=str(os.getcwd())+"/YoutubeVideo.mp4"
         global z
         z="Bhoot"+"k"+".mp4"
         import subprocess  
