@@ -67,9 +67,7 @@ if (a):
         
         
         with open("Lookgood.mp4",'wb') as f:
-            video_bytes = f.read()
-
-            st.video(video_bytes)
+            
             st.download_button(label='Save Video', data=f, file_name='YoutubeVideo.mp4',mime="application/octet-stream")
             
     else :
