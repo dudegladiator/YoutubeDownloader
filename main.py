@@ -47,7 +47,7 @@ def download(link,res,option):
         z='youtube1/Youtube.mp4'
         import subprocess  
         subprocess.call(f"ffmpeg -i {p} -i {q}  -c copy {z}",shell=True)
-        
+        video=open(z,"rb")
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(90)
     if (option==2):
