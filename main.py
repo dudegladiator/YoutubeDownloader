@@ -17,7 +17,11 @@ def download(link,res,option):
     k=str(random.randrange(100))
 
     audio = yt.streams.get_by_itag(yt.streams.filter(type="audio")[0].itag)
-    
+    STREAMLIT_STATIC_PATH = pathlib.Path(st.__path__[0]) / 'static'
+    VIDEOS_PATH = (STREAMLIT_STATIC_PATH / "videos")
+    if not VIDEOS_PATH.is_dir():
+        VIDEOS_PATH.mkdir()
+
     
     a=audio.download()
     
@@ -48,7 +52,9 @@ def download(link,res,option):
         z="Bhoot"+"k"+".mp4"
         import subprocess  
         subprocess.call(f"ffmpeg -i {p} -i {q}  -c copy {z}",shell=True)
-        
+        wildlife_video = VIDEOS_PATH / z
+        if not wildlife_video.exists():
+            shutil.copy("Wildlife.mp4", wildlife_video)
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(90)
     if (option==2):
@@ -68,8 +74,7 @@ if (a):
     download(link,res,option)
     if option==2:
         
-        
-        with open(z,'rb') as f:
+        with open(f"videos/{z}",'rb') as f:
             st.download_button(label='Save Video', data=f, file_name='YoutubeVideo.mp4',mime="application/octet-stream")
             
     else :
