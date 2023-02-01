@@ -53,7 +53,7 @@ def download(link,res,option):
         global z
         z="Bhoot"+"k"+".mp4"
         import subprocess  
-        subprocess.call(f"ffmpeg -i {p} -i {q}  -c copy Audio1+{k}+.mp4",shell=True)
+        subprocess.run(f"ffmpeg -i {p} -i {q}  -c copy Audio1+{k}+.mp4",shell=True)
         
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(90)
