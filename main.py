@@ -56,7 +56,7 @@ def download(link,res,option):
         subprocess.call(f"ffmpeg -i {p} -i {q}  -c copy {z}",shell=True)
         wildlife_video = VIDEOS_PATH / z
         if not wildlife_video.exists():
-            shutil.copy(f"static/{z}, wildlife_video)
+            shutil.copy(f"static/{z}", wildlife_video)
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(90)
     if (option==2):
