@@ -46,6 +46,7 @@ def download(link,res,option):
           
         p="Cache"+k+".mp4"
         q="Audio"+k+".mp3"
+        open(q,"wb")
         global z
         z="Bhoot"+"k"+".mp4"
         import subprocess  
