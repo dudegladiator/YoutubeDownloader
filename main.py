@@ -61,9 +61,9 @@ if (a):
     if option==2:
         with open('YoutubeVideo.mp4', 'rb') as f:
             st.download_button('Save Video', f, file_name='YoutubeVideo.mp4')
-        os.remove("YoutubeVideo.mp4")    
+            
     else :
         with open("Audio.mp3",'rb' ) as f:
             st.download_button("Save Audio",f,"Music.mp3") 
-        os.remove("Audio.mp3")
+        
 
