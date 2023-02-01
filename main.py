@@ -29,8 +29,8 @@ def download(link,res,option):
     q=Path(a)
     global w
     w=Path(a)
-    q=q.rename(q.with_name("Audio"+"k"+".mp3"))
-    w=w.rename(w.with_name("Video1"+"k"+".mp4"))
+    q=q.rename(q.with_name("Audio"+k+".mp3"))
+    w=q
     if (option==2):
         video = yt.streams.get_by_itag(yt.streams.filter(res=res,type="video")[0].itag)
         b=video.download()
@@ -44,9 +44,9 @@ def download(link,res,option):
         #to merge the file 
         import ffmpeg
           
-        p="Cache"+"k"+".mp4"
-        q="Audio"+"k"+".mp3"
-        w="Video1"+"k"+".mp4"
+        p="Cache"+k+".mp4"
+        q="Audio"+k+".mp3"
+        w="Video1"+k+".mp4"
         global z
         z="Bhoot"+"k"+".mp4"
         import subprocess  
