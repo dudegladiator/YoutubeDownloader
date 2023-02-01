@@ -23,20 +23,20 @@ def download(link,res,option):
     latest_iteration.text(f'{int(time.time()-e)} Second')
     bar.progress(30)
     #to change the file name of audio
-    q=Path(a)
+    global q=Path(a)
     q=q.rename(q.with_name("Audio.mp3"))
     if (option==2):
         video = yt.streams.get_by_itag(yt.streams.filter(res=res,type="video")[0].itag)
         b=video.download()
         #to change the file name of video
-        p=Path(b)
+        global p=Path(b)
         p=p.rename(p.with_name("Cache.mp4"))
         
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(60)
         #to merge the file 
         import ffmpeg
-        import subprocess    
+          
         p='Cache.mp4'
         q='Audio.mp3'
         
@@ -60,6 +60,7 @@ a=st.button("Start Downloading")
 if (a):
     download(link,res,option)
     if option==2:
+        import subprocess  
         subprocess.call(f"ffmpeg -i {p} -i {q}  -c copy YoutubeVideo.mp4",shell=True)
         with open('YoutubeVideo.mp4', 'rb') as f:
             st.download_button('Save Video', f, file_name='YoutubeVideo.mp4')
