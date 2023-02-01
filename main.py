@@ -27,6 +27,7 @@ def download(link,res,option):
     #to change the file name of audio
     global q
     q=Path(a)
+    global w
     w=Path(v)
     q=q.rename(q.with_name("Audio"+"k"+".mp3"))
     w=w.rename(w.with_name("Audio1"+"k"+".mp4"))
