@@ -58,7 +58,7 @@ def download(link,res,option):
     bar.progress(100)
 st.title("Download Youtube Video")
 link=st.text_input("Youtube URL")
-res=st.selectbox("Select The resolution",("720p","144p","240p","360p","480p","720p","1080p","1460p","2160p","4320p"))
+res=st.selectbox("Select The resolution",("720p","144p","240p","360p","480p","720p","1080p","1440p","2160p","4320p"))
 option = st.selectbox("Audio(1) or Video(2)",(1,2))
 a=st.button("Start Downloading")
 if (a):
