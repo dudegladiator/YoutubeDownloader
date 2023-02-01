@@ -66,8 +66,8 @@ if (a):
     if option==2:
         
         
-        with open("YoutubeVideo1.txt") as f:
-            st.download_button('Save Video', f, file_name='YoutubeVideo1.txt')
+        with open("YoutubeVideo.mp4") as f:
+            st.download_button('Save Video', f, file_name='YoutubeVideo.mp4')
             
     else :
         with open("Audio.mp3",'rb' ) as f:
