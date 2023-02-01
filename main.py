@@ -37,7 +37,9 @@ def download(link,res,option):
         #to merge the file 
         import ffmpeg
         import subprocess    
-        subprocess.run(f"ffmpeg -i Cache.mp4 -i Audio.mp3 -c:v copy -c:a aac -strict experimental YoutubeVideo.mp4")
+        p='Cache.mp4'
+        q='Audio.mp3'
+        subprocess.run(f"ffmpeg -i {p} -i {q} -c:v copy -c:a aac -strict experimental YoutubeVideo.mp4")
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(90)
     if (option==2):
