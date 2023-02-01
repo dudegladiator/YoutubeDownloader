@@ -3,7 +3,7 @@ from pathlib import Path
 from pytube import YouTube
 import os , time
 import random
-browser.gatherUsageStats =  False
+
 def download(link,res,option): 
     e=time.time()
     latest_iteration = st.empty()
