@@ -1,5 +1,4 @@
 pytube
 pathlib
-streamlit
 ffmpeg
 
