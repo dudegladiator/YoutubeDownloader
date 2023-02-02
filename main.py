@@ -37,7 +37,7 @@ def download(link,res,option):
         #to change the file name of video
         global p
         p=Path(b)
-        p=p.rename(p.with_name("Cache"+"k"+".mp4"))
+        p=p.rename(p.with_name("Cache"+k+".mp4"))
                    
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(30)
@@ -46,16 +46,16 @@ def download(link,res,option):
           
         p="Cache"+k+".mp4"
         q="Audio"+k+".mp3"
-        open("Audio1.mp4","wb")
-        global z
-        z="Bhoot"+"k"+".mp4"
         import subprocess  
-        subprocess.run(f"ffmpeg -i {p} -i {q}  -c copy Audio1.mp4",shell=True)
+        subprocess.run(f"ffmpeg -i {p} -i {q}  -c copy Video{k}.mp4",shell=True)
         
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(90)
+    if (option==2):
+        os.remove(p)
+        os.remove(q)
     
-        
+    
     
     latest_iteration.text(f'{int(time.time()-e)} Second')
     bar.progress(100)
@@ -69,11 +69,10 @@ if (a):
     if option==2:
         
         
-        with open("Audio1.mp4",'rb') as f:
-            st.download_button(label='Save Video', data=f, file_name='YoutubeVideo.mp4',mime="application/octet-stream")
-            
+        with open(f"Video{k}.mp4",'rb') as f:
+            st.download_button(label='Save Video', data=f, file_name=f'YoutubeVideo{k}.mp4',mime="application/octet-stream")
+            os.remove(f"Video{k}.mp4")
     else :
         with open("Audio.mp3",'rb' ) as f:
             st.download_button("Save Audio",f,"Music.mp3") 
         
-
