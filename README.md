@@ -33,7 +33,7 @@ Highest  Audio quality available - 128 kbps
 ## Goal
 
 - [ ] Add Playlist Downloader
-- [ ] Make Server Based Model
+- [x] Make Server Based Model
 
 ## Getting Started
 
