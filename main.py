@@ -52,7 +52,7 @@ def download(link,res,option):
         
         import subprocess  
         cwd1=str(os.getcwd())
-        subprocess.run(f"{p}",shell=False,cwd=str(os.getcwd()))
+        subprocess.run(f"ffmpeg",shell=False,cwd=str(os.getcwd()))
         subprocess.run(f"ffmpeg {p} {q} -c:v copy -c:a aac -strict experimental Video{k}.mp4",shell=False,cwd=cwd1)
         
         latest_iteration.text(f'{int(time.time()-e)} Second')
