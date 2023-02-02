@@ -38,7 +38,10 @@ def download(link,res,option):
         global p
         p=Path(b)
         p=p.rename(p.with_name("Cache"+k+".mp4"))
-                   
+        video_file = open("Cache"+k+".mp4", 'rb')
+        video_bytes = video_file.read()
+
+        st.video(video_bytes)           
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(30)
         #to merge the file 
