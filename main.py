@@ -43,26 +43,11 @@ def download(link,res,option):
         bar.progress(30)
         #to merge the file 
         import ffmpeg
-          
         
-        import ffmpeg
-
-
-        input_video = ffmpeg.input(p)
-        added_audio = ffmpeg.input(q).audio.filter('adelay', "1500|1500")
-
-        merged_audio = ffmpeg.filter([input_video.audio, added_audio], 'amix')
-
-        (
-                  ffmpeg
-                  .concat(input_video, merged_audio, v=1, a=1)
-                  .output(f"Video{k}.mp4")
-                  .run(overwrite_output=True)
-        )
         
         
         import subprocess  
-        subprocess.run(f"ffmpeg -i {p} -i {q}  -c copy Video{k}.mp4",shell=True)
+        subprocess.run(f"ffmpeg -i {p} -i {q}  -c copy Video{k}.mp4",shell=False)
         
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(90)
