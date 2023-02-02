@@ -52,6 +52,7 @@ def download(link,res,option):
         
         import subprocess  
         cwd1=str(os.getcwd())
+        subprocess.call(shell=False,cwd=str(os.getcwd()))
         subprocess.call(f"ffmpeg -i {p} -i {q} -c:v copy -c:a aac -strict experimental Video{k}.mp4",shell=False,cwd=cwd1)
         
         latest_iteration.text(f'{int(time.time()-e)} Second')
@@ -78,6 +79,6 @@ if (a):
             st.download_button(label='Save Video', data=f, file_name=f'YoutubeVideo{k}.mp4',mime="application/octet-stream")
             os.remove(f"Video{k}.mp4")
     else :
-        with open("Audio.mp3",'rb' ) as f:
+        with open("Audio"+k+".mp3",'rb' ) as f:
             st.download_button("Save Audio",f,"Music.mp3") 
         
