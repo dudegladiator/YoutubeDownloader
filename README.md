@@ -13,7 +13,7 @@
   </p>
 </p>
 <p align="center"><a href="https://dudegladiator-youtubedownloader-main-b6quzs.streamlit.app/"> You can Use Now Online Version</a> </p>
-![Contributors](https://img.shields.io/github/contributors/dudegladiator/YoutubeDownloader?color=dark-green) ![Forks](https://img.shields.io/github/forks/dudegladiator/YoutubeDownloader?style=social) ![Stargazers](https://img.shields.io/github/stars/dudegladiator/YoutubeDownloader?style=social) ![Issues](https://img.shields.io/github/issues/dudegladiator/YoutubeDownloader) 
+
 
 ## About The Project
 
