@@ -16,7 +16,7 @@ def download(link,res,option,number=1):
         else: title+=i    
     #For Audio     File - q   
     if (option==1):
-        audio = yt.streams.get_by_itag(yt.streams.filter(type="audio")[0].itag)
+        audio = yt.streams.get_by_itag(yt.streams.filter(type="audio",mime_type="audio/webm")[0].itag)
         a = audio.download()
         global q
         q=Path(a)
@@ -54,18 +54,18 @@ def download(link,res,option,number=1):
 
 st.title("Download Youtube Video")
 link=st.text_input("Youtube Video or Playlist URL")
-loc=st.radio("Where it is working",("Local","Cloud"))
+loc=st.radio("Where it is working",("Cloud","Local"))
 #Local
 if (loc=="Local"):
     #For Playlist
     if ("playlist" in link):
         ytplay=Playlist(link)
-        opt=st.radio("Choose the Option",("Download All","Choose(Bug)"))
+        
         #Downloading all
-        if (opt=="Download All"):
-            option = st.selectbox("Audio(1) or Video(2)",(1,2))
+        
+        option = st.selectbox("Audio(1) or Video(2)",(1,2))
             # for video
-            if (option==2):
+        if (option==2):
                 res=st.selectbox("Select The resolution",("720p","144p","240p","360p","480p","1080p","1440p","2160p","4320p"))
                 a=st.button("Start Downloading")
                 if a:
@@ -79,7 +79,7 @@ if (loc=="Local"):
                             with open(k,'rb') as f:
                                 st.download_button(label='Save Video', data=f ,file_name=f"{i} {title}.mp4")
             #For Audio
-            else:
+        else:
                 a=st.button("Start Downloading")  
                 if a:
                     for i , url in enumerate(ytplay.video_urls,1):
@@ -87,41 +87,7 @@ if (loc=="Local"):
                         download(url, "720p", option)
                         with open(q,'rb' ) as f:
                             st.download_button("Save Audio",f,file_name=f"{i} {title}.mp3")
-        #Choosing
-        else:
-            option = st.selectbox("Audio(1) or Video(2)",(1,2))
-            # for video
-            if (option==2):
-                a=st.button("Start Downloading")
-                if a:
-                    for i , url in enumerate(ytplay.video_urls,1):
-                        st.write(f"Video-{i}")
-                        res=st.selectbox(f"Select The resolution {i}",("720p","144p","240p","360p","480p","1080p","1440p","2160p","4320p"))
-                        w=st.radio(f"Wanna Download {i}",("k","No2","Yes2"))
-                        if (w=="Yes2"):
-                            download(url,res,option,i)
-                            if (res=="720p"or res=="144p"  or res=="360p"):
-                                with open(p,'rb') as f:
-                                    st.download_button(label='Save Video', data=f ,file_name=f"{i} {title}.mp4") 
-                            else :
-                                with open(k,'rb') as f:
-                                    st.download_button(label='Save Video', data=f ,file_name=f"{i} {title}.mp4")
-                        elif(w=="No2") :
-                            continue            
-            #For Audio
-            else:
-                a=st.button("Start Downloading")  
-                if a:
-                    for i , url in enumerate(ytplay.video_urls,1):
-                        st.write(f"Audio-{i}")
-                        z=st.radio(f"Wanna Download {i}",("No1","Yes1"))
-                        if (z=="Yes1"): 
-                            download(url, "720p", option)
-                            with open(q,'rb' ) as f:
-                                st.download_button("Save Audio",f,file_name=f"{i} {title}.mp3")
-                        elif(z=="No1") : 
-                            continue         
-                           
+                 
                               
     #For Single video
     else:
@@ -144,18 +110,19 @@ if (loc=="Local"):
             if a:
                 download(link, "720p", option)
                 with open(q,'rb' ) as f:
-                    st.download_button("Save Audio",f,file_name=f"{title}.mp3")       
+                    st.download_button("Save Audio",f,file_name=f"{title}.mp3")     
+                      
 # cloud                        
 else :
     #For Playlist    
     if ("playlist" in link):
         ytplay=Playlist(link)
-        opt=st.radio("Choose the Option",("Download All","Choose(BUG)"))
+        
         #Downloading all
-        if (opt=="Download All"):
-            option = st.selectbox("Audio(1) or Video(2)",(1,2))
+        
+        option = st.selectbox("Audio(1) or Video(2)",(1,2))
             # for video
-            if (option==2):
+        if (option==2):
                 res=st.selectbox("Select The resolution",("720p","144p","360p"))
                 a=st.button("Start Downloading")
                 if a:
@@ -166,7 +133,7 @@ else :
                             st.download_button(label='Save Video', data=f ,file_name=f"{i} {title}.mp4") 
                         
             #For Audio
-            else:
+        else:
                 a=st.button("Start Downloading")  
                 if a:
                     for i , url in enumerate(ytplay.video_urls,1):
