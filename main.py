@@ -51,8 +51,7 @@ def download(link,res,option):
         q="Audio"+k+".mp3"
         
         import subprocess  
-        subprocess.call(f"ffmpeg -i {p} -i {q} -c:v copy -c:a aac -strict experimental Video{k}.mp4
-",shell=False)
+        subprocess.call(f"ffmpeg -i {p} -i {q} -c:v copy -c:a aac -strict experimental Video{k}.mp4",shell=False)
         
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(90)
