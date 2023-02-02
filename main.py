@@ -53,7 +53,7 @@ def download(link,res,option,number=1):
 
 st.title("Download Youtube Video")
 link=st.text_input("Youtube Video or Playlist URL")
-loc=st.radio("Where it is working",("Local","Cloud"))
+loc=st.radio("Where it is working",("Cloud","Local"))
 #Local
 if (loc=="Local"):
     #For Playlist
