@@ -51,7 +51,7 @@ def download(link,res,option):
         q="Audio"+k+".mp3"
         
         import subprocess  
-        directory=str(os.getcwd())
+        directory=(os.getcwd())
         subprocess.run(f"ls -l {directory}",shell=False,cwd=str(os.getcwd()))
         subprocess.run(f"ffmpeg {p} {q} -c:v copy -c:a aac -strict experimental Video{k}.mp4",shell=False,cwd=cwd1)
         
