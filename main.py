@@ -52,8 +52,8 @@ def download(link,res,option):
         
         import subprocess  
         cwd1=str(os.getcwd())
-        subprocess.call("cd",shell=False,cwd=str(os.getcwd()))
-        subprocess.call(f"ffmpeg -i {p} -i {q} -c:v copy -c:a aac -strict experimental Video{k}.mp4",shell=False,cwd=cwd1)
+        subprocess.run("ls -l",shell=False,cwd=str(os.getcwd()))
+        subprocess.run(f"ffmpeg -i {p} -i {q} -c:v copy -c:a aac -strict experimental Video{k}.mp4",shell=False,cwd=cwd1)
         
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(90)
