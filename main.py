@@ -44,8 +44,7 @@ def download(link,res,option):
         #to merge the file 
         import ffmpeg
           
-        p="Cache"+k+".mp4"
-        q="Audio"+k+".mp3"
+        
         import ffmpeg
 
 
