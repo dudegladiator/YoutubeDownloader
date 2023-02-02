@@ -30,7 +30,7 @@ Highest  Audio quality available - 128 kbps
 * [Streamlit](https://streamlit.io/)
 * [Pytube](https://pytube.io/en/latest/index.html#)
 
-##Goal
+## Goal
 
 - [ ] Add Playlist Downloader
 - [ ] Make Server Based Model
