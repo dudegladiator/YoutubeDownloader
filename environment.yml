@@ -1,3 +1,5 @@
 name: YoutubeDownloader
 dependencies:
   - ffmpeg
+  - pytube
+  - pathlib
