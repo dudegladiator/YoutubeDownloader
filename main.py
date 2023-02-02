@@ -44,7 +44,8 @@ def download(link,res,option):
         #to merge the file 
         import ffmpeg
         
-        
+        p="Cache"+k+".mp4"
+        q="Audio"+k+".mp3"
         
         import subprocess  
         subprocess.run(f"ffmpeg -i {p} -i {q}  -c copy Video{k}.mp4",shell=False)
