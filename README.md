@@ -12,7 +12,7 @@
     <br/>
   </p>
 </p>
-
+<p align="center"><a href="https://dudegladiator-youtubedownloader-main-b6quzs.streamlit.app/"> You can Use Now Online Version</a> </p>
 ![Contributors](https://img.shields.io/github/contributors/dudegladiator/YoutubeDownloader?color=dark-green) ![Forks](https://img.shields.io/github/forks/dudegladiator/YoutubeDownloader?style=social) ![Stargazers](https://img.shields.io/github/stars/dudegladiator/YoutubeDownloader?style=social) ![Issues](https://img.shields.io/github/issues/dudegladiator/YoutubeDownloader) 
 
 ## About The Project
@@ -20,8 +20,15 @@
 ![Screen Shot](images/screenshot.png)
 
 This can be used to download Youtube Video and Music.
-Highest Quality available - 4320p(8K)
+
+
+Highest Quality available - 4320p(8K) (Only on Local Server)
+
+
 Highest  Audio quality available - 128 kbps
+
+
+Now, You can download Whole Playlist  
 
 ## Built With
 
@@ -32,7 +39,7 @@ Highest  Audio quality available - 128 kbps
 
 ## Goal
 
-- [ ] Add Playlist Downloader
+- [x] Add Playlist Downloader
 - [x] Make Server Based Model
 
 ## Getting Started
