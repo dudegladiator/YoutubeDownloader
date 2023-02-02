@@ -30,6 +30,7 @@ def download(link,res,option):
     q=Path(a)
    
     q=q.rename(q.with_name("Audio"+k+".mp3"))
+    q = os.path.abspath(q)
     global w
     if (option==2):
         video = yt.streams.get_by_itag(yt.streams.filter(res=res,type="video")[0].itag)
@@ -40,20 +41,17 @@ def download(link,res,option):
         p=p.rename(p.with_name("Cache"+k+".mp4"))
         video_file = open("Cache"+k+".mp4", 'rb')
         video_bytes = video_file.read()
-
+        
         st.video(video_bytes)           
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(30)
         #to merge the file 
         import ffmpeg
         
-        p="Cache"+k+".mp4"
-        q="Audio"+k+".mp3"
+        p= os.path.abspath(p)
         
-        import subprocess  
-        directory=(os.getcwd())
-        subprocess.run(f"ls -l {directory}",shell=False,cwd=str(os.getcwd()))
-        subprocess.run(f"ffmpeg {p} {q} -c:v copy -c:a aac -strict experimental Video{k}.mp4",shell=False,cwd=cwd1)
+        import subprocess 
+        subprocess.run(f"ffmpeg {p} {q} -c:v copy -c:a aac -strict experimental Video{k}.mp4",shell=False)
         
         latest_iteration.text(f'{int(time.time()-e)} Second')
         bar.progress(90)
