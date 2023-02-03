@@ -2,8 +2,8 @@ import streamlit as st
 from pathlib import Path
 from pytube import YouTube,Playlist
 import os , time,random,sys
-
 # To Download Any youtube video
+st.cache()
 def download(link,res,option):
     yt = YouTube(link)
     #Making title 
@@ -75,22 +75,32 @@ if (loc=="Local Server(Highest Quality Available)"):
         if (option==2):
                 res=st.selectbox("Select The resolution",("720p","144p","240p","360p","480p","1080p","1440p","2160p","4320p"))
                 a=st.button("Start Downloading")
-                if a:
+                if "load_state" not in st.session_state:
+                    st.session_state.load_state = False
+                if a or st.session_state.load_state:
+                    st.session_state.load_state=True
+                    
                     for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
-                        
                         number=i
                         download(url,res,option)
                         st.write(f"{number} {title}")
                         if (res=="720p"or res=="144p"  or res=="360p"):
                             with open(p,'rb') as f:
-                                st.download_button(label='Save Video', data=f ,file_name=f"{i} {title}.mp4") 
+                                st.download_button(label='Save Video', data=f ,file_name=f"{i} {title}.mp4")
+                                 
                         else :
                             with open(k,'rb') as f:
                                 st.download_button(label='Save Video', data=f ,file_name=f"{i} {title}.mp4")
+                                
+                                
+                                
             #For Audio
         else:
-                a=st.button("Start Downloading")  
-                if a:
+                a=st.button("Start Downloading") 
+                if "load_state" not in st.session_state:
+                    st.session_state.load_state = False
+                if a or st.session_state.load_state:
+                    st.session_state.load_state=True
                     for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
                         number=i
                         download(url, "720p", option)
@@ -139,7 +149,10 @@ else :
         if (option==2):
                 res=st.selectbox("Select The resolution",("720p","144p","360p"))
                 a=st.button("Start Downloading")
-                if a:
+                if "load_state" not in st.session_state:
+                    st.session_state.load_state = False
+                if a or st.session_state.load_state:
+                    st.session_state.load_state=True
                     for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
                         number=i
                         download(url,res,option)
@@ -150,7 +163,10 @@ else :
             #For Audio
         else:
                 a=st.button("Start Downloading")  
-                if a:
+                if "load_state" not in st.session_state:
+                    st.session_state.load_state = False
+                if a or st.session_state.load_state:
+                    st.session_state.load_state=True
                     for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
                         number=i
                         download(url, "720p", option)
