@@ -63,10 +63,10 @@ global number
 number=random.randrange(1,1000)
 link=st.text_input("Youtube Video or Playlist URL")
 
-loc=st.radio("Where it is working",("Cloud","Local(Select only If you have downloaded from github)"))
+loc=st.radio("Where it is working",("On Cloud(Using Website Version)","Local Server(Highest Quality Available)"))
 
 #Local
-if (loc=="Local(Select only If you have downloaded from github)"):
+if (loc=="Local Server(Highest Quality Available)"):
     #For Playlist
     if ("playlist" in link):
         ytplay=Playlist(link)
@@ -77,9 +77,10 @@ if (loc=="Local(Select only If you have downloaded from github)"):
                 a=st.button("Start Downloading")
                 if a:
                     for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
-                        st.write(f"Video-{i}")
+                        
                         number=i
                         download(url,res,option)
+                        st.write(f"{number} {title}")
                         if (res=="720p"or res=="144p"  or res=="360p"):
                             with open(p,'rb') as f:
                                 st.download_button(label='Save Video', data=f ,file_name=f"{i} {title}.mp4") 
@@ -91,9 +92,9 @@ if (loc=="Local(Select only If you have downloaded from github)"):
                 a=st.button("Start Downloading")  
                 if a:
                     for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
-                        st.write(f"Audio-{i}")
                         number=i
                         download(url, "720p", option)
+                        st.write(f"{number} {title}")
                         with open(q,'rb' ) as f:
                             st.download_button("Save Audio",f,file_name=f"{i} {title}.mp3")
                  
@@ -108,6 +109,7 @@ if (loc=="Local(Select only If you have downloaded from github)"):
             if a:
                 number+=1
                 download(link,res,option)
+                st.write(f"{number} {title}")
                 if (res=="720p"or res=="144p"  or res=="360p"):
                    with open(p,'rb') as f:
                         st.download_button(label='Save Video', data=f ,file_name=f"{title}.mp4") 
@@ -120,6 +122,7 @@ if (loc=="Local(Select only If you have downloaded from github)"):
             if a:
                 number+=1
                 download(link, "720p", option)
+                st.write(f"{number} {title}")
                 with open(q,'rb' ) as f:
                     st.download_button("Save Audio",f,file_name=f"{title}.mp3")     
                       
@@ -138,9 +141,9 @@ else :
                 a=st.button("Start Downloading")
                 if a:
                     for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
-                        st.write(f"Video-{i}")
                         number=i
                         download(url,res,option)
+                        st.write(f"{number} {title}")
                         with open(p,'rb') as f:
                             st.download_button(label='Save Video', data=f ,file_name=f"{i} {title}.mp4") 
                         
@@ -149,9 +152,9 @@ else :
                 a=st.button("Start Downloading")  
                 if a:
                     for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
-                        st.write(f"Audio-{i}")
                         number=i
                         download(url, "720p", option)
+                        st.write(f"{number} {title}")
                         with open(q,'rb' ) as f:
                             st.download_button("Save Audio",f,file_name=f"{i} {title}.mp3")
 
@@ -165,6 +168,7 @@ else :
             if a:
                 number+=1
                 download(link,res,option)
+                st.write(f"{number} {title}")
                 with open(p,'rb') as f:
                     st.download_button(label='Save Video', data=f ,file_name=f"{title}.mp4")
         #For Audio            
@@ -173,6 +177,7 @@ else :
             if a:
                 number+=1
                 download(link, "720p", option)
+                st.write(f"{number} {title}")
                 with open(q,'rb' ) as f:
                     st.download_button("Save Audio",f,file_name=f"{title}.mp3")           
                     
