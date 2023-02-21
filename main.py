@@ -70,7 +70,6 @@ if (loc=="Local Server(Highest Quality Available)"):
     #For Playlist
     if ("playlist" in link):
         ytplay=Playlist(link)
-        st.write("There is Bug for playlist downnloader - If you can encounter that , then try to download with every single video url" )
         option = st.selectbox("Audio(1) or Video(2)",(1,2))
         # for video
         if (option==2):
@@ -86,12 +85,10 @@ if (loc=="Local Server(Highest Quality Available)"):
                         download(url,res,option)
                         st.write(f"{number} {title}")
                         if (res=="720p"or res=="144p"  or res=="360p"):
-                            with open(p,'rb') as f:
-                                st.download_button(label='Save Video', data=f ,file_name=f"{i} {title}.mp4")
+                            st.write("Automatically Saved in opened Folder or in your admisntration Folder")
                                  
                         else :
-                            with open(k,'rb') as f:
-                                st.download_button(label='Save Video', data=f ,file_name=f"{i} {title}.mp4")
+                            st.write("Automatically Saved in opened Folder or in your admisntration Folder")
                                 
                                 
                                 
@@ -106,8 +103,7 @@ if (loc=="Local Server(Highest Quality Available)"):
                         number=i
                         download(url, "720p", option)
                         st.write(f"{number} {title}")
-                        with open(q,'rb' ) as f:
-                            st.download_button("Save Audio",f,file_name=f"{i} {title}.mp3")
+                        st.write("Automatically Saved in opened Folder or in your admisntration Folder")
                  
                               
     #For Single video
@@ -122,11 +118,9 @@ if (loc=="Local Server(Highest Quality Available)"):
                 download(link,res,option)
                 st.write(f"{number} {title}")
                 if (res=="720p"or res=="144p"  or res=="360p"):
-                   with open(p,'rb') as f:
-                        st.download_button(label='Save Video', data=f ,file_name=f"{title}.mp4") 
+                   st.write("Automatically Saved in opened Folder or in your admisntration Folder") 
                 else :
-                    with open(k,'rb') as f:
-                        st.download_button(label='Save Video', data=f ,file_name=f"{title}.mp4")
+                    st.write("Automatically Saved in opened Folder or in your admisntration Folder")
         #For Audio
         else:
             a=st.button("Start Downloading")
@@ -134,8 +128,7 @@ if (loc=="Local Server(Highest Quality Available)"):
                 number+=1
                 download(link, "720p", option)
                 st.write(f"{number} {title}")
-                with open(q,'rb' ) as f:
-                    st.download_button("Save Audio",f,file_name=f"{title}.mp3")     
+                st.write("Automatically Saved in opened Folder or in your admisntration Folder")     
                       
 # cloud                        
 else :
