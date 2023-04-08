@@ -141,8 +141,8 @@ else :
             ytplay=Playlist(link)
         except :
             st.write("Try Again")
-            time.sleep(5)
-            st.experimental_rerun("Try Again")
+            time.sleep(100)
+            st.experimental_rerun()
         
         #Downloading all
         
