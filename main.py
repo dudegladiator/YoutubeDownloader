@@ -133,15 +133,7 @@ if (loc=="Local Server(Highest Quality Available)"):
             a=st.button("Start Downloading")
             if a:
                 number+=1
-                try : 
-                    download(url,res,option)
-                except IndexError:
-                    st.write("Resolution not available")
-                    st.stop()
-                except :
-                    st.write("Try Again")
-                    st.experimental_rerun()    
-                        
+                download(url, res, option)   
                 st.write(f"{number} {title}")
                 if (res=="720p"or res=="144p"  or res=="360p"):
                    st.write("Automatically Saved in opened Folder or in your admisntration Folder") 
