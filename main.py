@@ -158,7 +158,7 @@ else :
                         number=i
                         try : 
                             download(url,res,option)
-                        except (IndexError,PytubeError):
+                        except:
                             st.write("Try Again")
                             st.experimental_rerun()
                             
@@ -175,7 +175,12 @@ else :
                     st.session_state.load_state=True
                     for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
                         number=i
-                        download(url, "720p", option)
+                        try:
+                            download(url, "720p", option)
+                        except:
+                            st.write("Try Again")
+                            st.experimental_rerun()
+                            
                         st.write(f"{number} {title}")
                         with open(q,'rb' ) as f:
                             st.download_button("Save Audio",f,file_name=f"{i} {title}.mp3")
@@ -189,7 +194,11 @@ else :
             a=st.button("Start Downloading")
             if a:
                 number+=1
-                download(link,res,option)
+                try:
+                    download(url, "720p", option)
+                except:
+                    st.write("Try Again")
+                    st.experimental_rerun()
                 st.write(f"{number} {title}")
                 with open(p,'rb') as f:
                     st.download_button(label='Save Video', data=f ,file_name=f"{title}.mp4")
@@ -198,7 +207,11 @@ else :
             a=st.button("Start Downloading")
             if a:
                 number+=1
-                download(link, "720p", option)
+                try:
+                    download(url, "720p", option)
+                except:
+                    st.write("Try Again")
+                    st.experimental_rerun()
                 st.write(f"{number} {title}")
                 with open(q,'rb' ) as f:
                     st.download_button("Save Audio",f,file_name=f"{title}.mp3")           
