@@ -156,7 +156,9 @@ else :
                     st.session_state.load_state=True
                     for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
                         number=i
-                        download(url,res,option)
+                        try: 
+                            download(url,res,option)
+                        except     
                         st.write(f"{number} {title}")
                         with open(p,'rb') as f:
                             st.download_button(label='Save Video', data=f ,file_name=f"{i} {title}.mp4") 
