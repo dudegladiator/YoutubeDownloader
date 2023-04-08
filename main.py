@@ -140,8 +140,9 @@ else :
         try :
             ytplay=Playlist(link)
         except :
-            st.write("Try Again")
-            st.experimental_rerun()
+            st.write("Link is not valid")
+            st.stop()
+            
         
         #Downloading all
         
@@ -158,9 +159,12 @@ else :
                         number=i
                         try : 
                             download(url,res,option)
-                        except:
+                        except IndexError:
+                            st.write("Resolution not available")
+                            st.stop()
+                        except :
                             st.write("Try Again")
-                            st.experimental_rerun()
+                            st.experimental_rerun()    
                             
                         st.write(f"{number} {title}")
                         with open(p,'rb') as f:
@@ -177,7 +181,7 @@ else :
                         number=i
                         try:
                             download(url, "720p", option)
-                        except:
+                        except :
                             st.write("Try Again")
                             st.experimental_rerun()
                             
@@ -196,9 +200,12 @@ else :
                 number+=1
                 try:
                     download(url, "720p", option)
-                except:
+                except IndexError:
+                    st.write("Resolution not available")
+                    st.stop()
+                except :
                     st.write("Try Again")
-                    st.experimental_rerun()
+                    st.experimental_rerun() 
                 st.write(f"{number} {title}")
                 with open(p,'rb') as f:
                     st.download_button(label='Save Video', data=f ,file_name=f"{title}.mp4")
