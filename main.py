@@ -142,7 +142,7 @@ else :
         except :
             st.write("Try Again")
             asyncio.sleep(10)
-            await st.experimental_rerun()
+            st.experimental_rerun()
         
         #Downloading all
         
