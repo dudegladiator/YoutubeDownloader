@@ -99,7 +99,6 @@ if (loc=="Local Server(Highest Quality Available)"):
                         st.write(f"{number} {title}")
                         if (res=="720p"or res=="144p"  or res=="360p"):
                             st.write("Automatically Saved in opened Folder or in your admisntration Folder")
-                                 
                         else :
                             st.write("Automatically Saved in opened Folder or in your admisntration Folder")
                                 
@@ -115,7 +114,7 @@ if (loc=="Local Server(Highest Quality Available)"):
                     for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
                         number=i
                         try:
-                            download(url, "720p", option)
+                            download(url,"360p", option)
                         except :
                             st.write("Try Again")
                             st.experimental_rerun()
@@ -133,7 +132,15 @@ if (loc=="Local Server(Highest Quality Available)"):
             a=st.button("Start Downloading")
             if a:
                 number+=1
-                download(url, res, option)   
+                try : 
+                    download(link,res,option)
+                except IndexError:
+                    st.write("Resolution not available")
+                    st.stop()
+                except :
+                    st.write("Try Again")
+                    st.experimental_rerun()    
+                        
                 st.write(f"{number} {title}")
                 if (res=="720p"or res=="144p"  or res=="360p"):
                    st.write("Automatically Saved in opened Folder or in your admisntration Folder") 
@@ -145,7 +152,7 @@ if (loc=="Local Server(Highest Quality Available)"):
             if a:
                 number+=1
                 try:
-                    download(url, "720p", option)
+                    download(link, "360p", option)
                 except:
                     st.write("Try Again")
                     st.experimental_rerun()
@@ -197,7 +204,7 @@ else :
                     for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
                         number=i
                         try:
-                            download(url, "720p", option)
+                            download(url, "360p", option)
                         except :
                             st.write("Try Again")
                             st.experimental_rerun()
@@ -215,7 +222,14 @@ else :
             a=st.button("Start Downloading")
             if a:
                 number+=1
-                download(url, res, option)
+                try:
+                    download(link,res, option)
+                except IndexError:
+                    st.write("Resolution not available")
+                    st.stop()
+                except :
+                    st.write("Try Again")
+                    st.experimental_rerun() 
                 st.write(f"{number} {title}")
                 with open(p,'rb') as f:
                     st.download_button(label='Save Video', data=f ,file_name=f"{title}.mp4")
@@ -225,7 +239,7 @@ else :
             if a:
                 number+=1
                 try:
-                    download(url, "720p", option)
+                    download(link,"360", option)
                 except:
                     st.write("Try Again")
                     st.experimental_rerun()
