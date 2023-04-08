@@ -215,14 +215,7 @@ else :
             a=st.button("Start Downloading")
             if a:
                 number+=1
-                try:
-                    download(url, res, option)
-                except IndexError:
-                    st.write("Resolution not available")
-                    st.stop()
-                except :
-                    st.write("Try Again")
-                    st.experimental_rerun() 
+                download(url, res, option)
                 st.write(f"{number} {title}")
                 with open(p,'rb') as f:
                     st.download_button(label='Save Video', data=f ,file_name=f"{title}.mp4")
