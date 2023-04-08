@@ -136,8 +136,13 @@ if (loc=="Local Server(Highest Quality Available)"):
 else :
     #For Playlist    
     if ("playlist" in link):
-        ytplay=Playlist(link)
-        st.write("There is Bug for playlist downnloader - If you can encounter that , then try to download with every single video url" )
+        
+        try :
+            ytplay=Playlist(link)
+        except :
+            st.write("Try Again")
+            st.experimental_rerun()
+        
         #Downloading all
         
         option = st.selectbox("Audio(1) or Video(2)",(1,2))
