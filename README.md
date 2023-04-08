@@ -9,8 +9,13 @@
   <p align="center">
     Download copyright-free Youtube video and music in highest quality 
     <br/>
+   </p>
+   <p align="center">
+    <a href="https://github.com/dudegladiator/YoutubeDownloader">Online Version</a>
     <br/>
-  </p>
+   </p>
+    <br/>
+ 
 </p>
 
 
@@ -58,10 +63,10 @@ git clone https://github.com/dudegladiator/YoutubeDownloader
 3. Install  packages
 
 ```sh
-pip install streamlit
+pip install streamlit==1.18.1
 ```
 ```sh
-pip install pytube
+pip install pytube==12.1.1
 ```
 ```sh
 pip install pathlib
