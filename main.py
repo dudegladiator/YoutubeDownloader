@@ -158,7 +158,7 @@ else :
                         number=i
                         try : 
                             download(url,res,option)
-                        except IndexError :
+                        except (IndexError,PytubeError):
                             st.write("Try Again")
                             st.experimental_rerun()
                             
