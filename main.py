@@ -71,7 +71,11 @@ loc=st.radio("Where it is working",("On Cloud(Using Website Version)","Local Ser
 if (loc=="Local Server(Highest Quality Available)"):
     #For Playlist
     if ("playlist" in link):
-        ytplay=Playlist(link)
+        try :
+            ytplay=Playlist(link)
+        except :
+            st.write("Link is not valid")
+            st.stop()
         option = st.selectbox("Audio(1) or Video(2)",(1,2))
         # for video
         if (option==2):
@@ -84,7 +88,15 @@ if (loc=="Local Server(Highest Quality Available)"):
                     
                     for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
                         number=i
-                        download(url,res,option)
+                        try : 
+                            download(url,res,option)
+                        except IndexError:
+                            st.write("Resolution not available")
+                            st.stop()
+                        except :
+                            st.write("Try Again")
+                            st.experimental_rerun()    
+                        
                         st.write(f"{number} {title}")
                         if (res=="720p"or res=="144p"  or res=="360p"):
                             st.write("Automatically Saved in opened Folder or in your admisntration Folder")
@@ -103,7 +115,12 @@ if (loc=="Local Server(Highest Quality Available)"):
                     st.session_state.load_state=True
                     for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
                         number=i
-                        download(url, "720p", option)
+                        try:
+                            download(url, "720p", option)
+                        except :
+                            st.write("Try Again")
+                            st.experimental_rerun()
+                        
                         st.write(f"{number} {title}")
                         st.write("Automatically Saved in opened Folder or in your admisntration Folder")
                  
@@ -117,7 +134,15 @@ if (loc=="Local Server(Highest Quality Available)"):
             a=st.button("Start Downloading")
             if a:
                 number+=1
-                download(link,res,option)
+                try : 
+                        download(url,res,option)
+                except IndexError:
+                        st.write("Resolution not available")
+                        st.stop()
+                except :
+                        st.write("Try Again")
+                        st.experimental_rerun()    
+                        
                 st.write(f"{number} {title}")
                 if (res=="720p"or res=="144p"  or res=="360p"):
                    st.write("Automatically Saved in opened Folder or in your admisntration Folder") 
@@ -128,7 +153,11 @@ if (loc=="Local Server(Highest Quality Available)"):
             a=st.button("Start Downloading")
             if a:
                 number+=1
-                download(link, "720p", option)
+                try:
+                    download(url, "720p", option)
+                except:
+                    st.write("Try Again")
+                    st.experimental_rerun()
                 st.write(f"{number} {title}")
                 st.write("Automatically Saved in opened Folder or in your admisntration Folder")     
                       
@@ -136,14 +165,11 @@ if (loc=="Local Server(Highest Quality Available)"):
 else :
     #For Playlist    
     if ("playlist" in link):
-        
         try :
             ytplay=Playlist(link)
         except :
             st.write("Link is not valid")
             st.stop()
-            
-        
         #Downloading all
         
         option = st.selectbox("Audio(1) or Video(2)",(1,2))
