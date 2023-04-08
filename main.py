@@ -216,7 +216,7 @@ else :
             if a:
                 number+=1
                 try:
-                    download(url, "720p", option)
+                    download(url, res, option)
                 except IndexError:
                     st.write("Resolution not available")
                     st.stop()
