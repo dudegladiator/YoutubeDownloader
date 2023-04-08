@@ -141,7 +141,6 @@ else :
             ytplay=Playlist(link)
         except :
             st.write("Try Again")
-            asyncio.sleep(10)
             st.experimental_rerun()
         
         #Downloading all
