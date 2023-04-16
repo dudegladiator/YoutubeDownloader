@@ -192,10 +192,11 @@ else :
                             st.experimental_rerun()    
                             
                         st.write(f"{number} {title}")
-                        with open(p,'rb') as f:
-                            st.download_button(label='Save Video', data=f ,file_name=f"{i} {title}.mp4") 
+                         
                         with zipfile.ZipFile(f"{k} Youtube videos.zip", mode="a") as archive:
                             archive.write(p)
+                   with open(f"{k} Youtube videos.zip",'rb') as f:
+                            st.download_button(label='Save File', data=f ,file_name=f"{k} Youtube videos.zip")         
             #For Audio
         else:
                 a=st.button("Start Downloading")  
