@@ -2,3 +2,4 @@ pytube==12.1.1
 pathlib
 ffmpeg-python
 streamlit==1.18.1
+retry==0.9.2
