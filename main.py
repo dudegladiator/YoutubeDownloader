@@ -1,5 +1,5 @@
 
-
+import zipfile
 import streamlit as st
 from pathlib import Path
 from pytube import YouTube,Playlist
@@ -179,6 +179,7 @@ else :
                     st.session_state.load_state = False
                 if a or st.session_state.load_state:
                     st.session_state.load_state=True
+                    k= random.randrange(1,1000)   
                     for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
                         number=i
                         try : 
@@ -193,7 +194,8 @@ else :
                         st.write(f"{number} {title}")
                         with open(p,'rb') as f:
                             st.download_button(label='Save Video', data=f ,file_name=f"{i} {title}.mp4") 
-                        
+                        with zipfile.ZipFile(f"{k} Youtube videos.zip", mode="a") as archive:
+                            archive.write(p)
             #For Audio
         else:
                 a=st.button("Start Downloading")  
