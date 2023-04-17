@@ -191,10 +191,10 @@ else :
                     for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
                         number=i
                         download(url,res,option)
-                        st.write(f"Downloaded {number} {title}")
+                        
                         with zipfile.ZipFile(f"{k} Youtube videos.zip", mode="a") as archive:
                             archive.write(p)
-                        st.write(f"Ziped {number} {title}")    
+                        st.write(f" Downloaded and Ziped - {title} ")    
                     try:    
                         with open(f"{k} Youtube videos.zip",'rb') as f:
                             st.write("Downloaded Successfully")
@@ -216,13 +216,13 @@ else :
                         number=i
                         try:
                             download(url,"360p",option)
-                            st.write(f"Downloaded {number} {title}")    
+                     
                         except:
                             st.write("Try Again")
                             st.stop()
                         with zipfile.ZipFile(f"{k} Youtube Songs.zip", mode="a") as archive:
                             archive.write(q)
-                        st.write(f"Ziped {number} {title}")     
+                        st.write(f" Downloaded and Ziped - {title} ")     
                     try:      
                         with open(f"{k} Youtube Songs.zip",'rb') as f:
                             st.write("Downloaded Successfully")
