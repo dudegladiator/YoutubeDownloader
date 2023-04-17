@@ -27,7 +27,7 @@
 
 ## About The Project
 
-![Screen Shot](images/screenshot1.png)
+![Screen Shot](images/UI.png)
 
 This can be used to download Youtube Video and Music.
 
