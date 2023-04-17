@@ -187,23 +187,24 @@ else :
                 res=st.selectbox("Select The resolution",("720p","144p","360p"))
                 a=st.button("Start Downloading")
                 k= random.randrange(1,1000)   
-                for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
-                    number=i
-                    download(url,res,option)
-                    with zipfile.ZipFile(f"{k} Youtube videos.zip", mode="a") as archive:
-                        archive.write(p)
-                try:    
-                    with open(f"{k} Youtube videos.zip",'rb') as f:
-                        st.write("Downloaded Successfully")
-                        st.download_button(label='Save File', data=f ,file_name=f"{k} Youtube videos.zip")            
-                except :
-                    st.write("Error Can be due to following reasons : ")
-                    st.write("    1. You have selected resolution which is not available for all videos")
-                    st.write("    2. File is too large to download")
-                    st.write("    3. Some Videos are not avaialble to download")
-                    st.write("Check the link")
-                    st.write("Try Again")
-                    st.stop()
+                if a:
+                    for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
+                        number=i
+                        download(url,res,option)
+                        with zipfile.ZipFile(f"{k} Youtube videos.zip", mode="a") as archive:
+                            archive.write(p)
+                    try:    
+                        with open(f"{k} Youtube videos.zip",'rb') as f:
+                            st.write("Downloaded Successfully")
+                            st.download_button(label='Save File', data=f ,file_name=f"{k} Youtube videos.zip")            
+                    except :
+                        st.write("Error Can be due to following reasons : ")
+                        st.write("    1. You have selected resolution which is not available for all videos")
+                        st.write("    2. File is too large to download")
+                        st.write("    3. Some Videos are not avaialble to download")
+                        st.write("Check the link")
+                        st.write("Try Again")
+                        st.stop()
         #For Audio
         else:
                 a=st.button("Start Downloading")  
