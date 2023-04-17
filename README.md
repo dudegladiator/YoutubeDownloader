@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-    Update Coming Soon
+    App is updated 
     <br/>
    </p>
 
