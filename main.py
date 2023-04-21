@@ -5,7 +5,7 @@ from pathlib import Path
 from pytube import YouTube,Playlist
 import os , time,random,sys,asyncio
 
-
+gatherUsageStats = false
 # To Download Any youtube video or playlist 
 st.cache()
 @retry(tries=5,delay=2,backoff=2,jitter=(1,3),max_delay=10)
