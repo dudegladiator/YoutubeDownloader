@@ -14,7 +14,10 @@ def download(link,res,option):
     #Making title 
     global title
     title=""
-    til=yt.title
+    try :
+        til=yt.title
+    except:
+        til="Youtube Video"
     for i in til :
         if (i==":"or i=="|" or i=="." or i=="/" or i=="\\" or i=="?" or i==">" or i=="<" or i==","):
             title+=" "
