@@ -17,7 +17,7 @@ def download(link,res,option):
     try :
         til=yt.title
     except:
-        til="Youtube Video"
+        til="Youtube Video(Title Not Available)"
     for i in til :
         if (i==":"or i=="|" or i=="." or i=="/" or i=="\\" or i=="?" or i==">" or i=="<" or i==","):
             title+=" "
