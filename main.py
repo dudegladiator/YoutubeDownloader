@@ -279,6 +279,9 @@ else :
                 number+=1
                 try:
                     download(link,"360", option)
+                except streamingData:
+                       st.write("Sorry Video is restricted")
+                       st.stop()    
                 except:
                     st.write("Check the link")
                     st.write("Try Again")
