@@ -277,16 +277,7 @@ else :
             a=st.button("Start Downloading")
             if a:
                 number+=1
-                try:
-                    download(link,"360", option)
-                except streamingData:
-                       st.write("Sorry Video is restricted")
-                       st.stop()    
-                except:
-                    st.write("Check the link")
-                    st.write("Try Again")
-                    
-                    st.stop()
+                download(link,"360", option)
                 st.write(f"{number} {title}")
                 with open(q,'rb' ) as f:
                     st.download_button("Save Audio",f,file_name=f"{number} {title}.mp3")           
