@@ -95,10 +95,10 @@ if (loc=="Local Server(Highest Quality Available)"):
                         except IndexError:
                             st.write("You have selected resolution which is not available for all videos")
                             st.write("Try with other resolution")
-                            st.stop() 
-                        except streamingData:
+                            continue
+                        except KeyError:
                             st.write("Sorry Video is restricted")
-                            st.stop()
+                            continue
                             
                         with zipfile.ZipFile(f"{k} Youtube videos.zip", mode="a") as archive:
                             archive.write(p)
@@ -123,10 +123,14 @@ if (loc=="Local Server(Highest Quality Available)"):
                     for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
                         number=i
                         try:
-                            download(url,"360p",option)    
+                            download(url,"360p",option) 
+                        except KeyError:
+                            st.write("Sorry Video is restricted")
+                            continue
                         except:
                             st.write("Try Again")
-                            st.stop()
+                            continue
+                            
                         with zipfile.ZipFile(f"{k} Youtube Songs.zip", mode="a") as archive:
                             archive.write(q)
                     with open(f"{k} Youtube Songs.zip",'rb') as f:
@@ -146,6 +150,9 @@ if (loc=="Local Server(Highest Quality Available)"):
                 number+=1
                 try :
                     download(link,res,option)
+                except KeyError:
+                       st.write("Sorry Video is restricted")
+                       st.stop()    
                 except IndexError:
                     st.write("You have selected resolution which is not available for all videos")
                     st.write("Try with other resolution")
@@ -169,6 +176,9 @@ if (loc=="Local Server(Highest Quality Available)"):
                 number+=1
                 try:
                     download(link,"360", option)
+                except KeyError:
+                       st.write("Sorry Video is restricted")
+                       st.stop()    
                 except:
                     st.write("Try Again")
                     st.stop()
@@ -197,8 +207,17 @@ else :
                 if a:
                     for i , url in enumerate(ytplay.video_urls,random.randrange(1,1000)):
                         number=i
-                        download(url,res,option)
-                        
+                        try:
+                            download(url,res,option)
+                        except KeyError:
+                            st.write("Sorry Video is restricted")
+                            continue 
+                        except IndexError:
+                            st.write(f"You have selected resolution which is not available for {title} videos")
+                            continue
+                        except:
+                            st.write(f"Video Unavaialble {title}")
+                            continue
                         with zipfile.ZipFile(f"{k} Youtube videos.zip", mode="a") as archive:
                             archive.write(p)
                         st.write(f" Downloaded and Ziped - {title} ")    
@@ -223,12 +242,12 @@ else :
                         number=i
                         try:
                             download(url,"360p",option)
-                        except streamingData:
-                            st.write("Sorry Video is restricted")
-                            st.stop()
+                        except KeyError:
+                            st.write(f"Sorry {title}  is restricted")
+                            continue
                         except:
-                            st.write("Try Again")
-                            st.stop()
+                            st.write("{title} unavailable")
+                            continue
                         with zipfile.ZipFile(f"{k} Youtube Songs.zip", mode="a") as archive:
                             archive.write(q)
                         st.write(f" Downloaded and Ziped - {title} ")     
@@ -255,8 +274,11 @@ else :
                 number+=1
                 try :
                     download(link,res,option)
+                except KeyError:
+                            st.write("Sorry Video is restricted")
+                            continue     
                 except :
-                    st.write("You have selected resolution which is not available for all videos")
+                    st.write("You have selected resolution which is not available for this videos")
                     st.write("Try again")
                     st.stop()    
                 try:
