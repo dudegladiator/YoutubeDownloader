@@ -275,8 +275,8 @@ else :
                 try :
                     download(link,res,option)
                 except KeyError:
-                            st.write("Sorry Video is restricted")
-                            continue     
+                     st.write("Sorry Video is restricted")
+                     st.stop()    
                 except :
                     st.write("You have selected resolution which is not available for this videos")
                     st.write("Try again")
@@ -307,7 +307,6 @@ else :
                 except:
                     st.write("Check the link")
                     st.write("Try Again")
-                    
                     st.stop()
                 st.write(f"{number} {title}")
                 with open(q,'rb' ) as f:
