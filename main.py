@@ -95,7 +95,11 @@ if (loc=="Local Server(Highest Quality Available)"):
                         except IndexError:
                             st.write("You have selected resolution which is not available for all videos")
                             st.write("Try with other resolution")
-                            st.stop()    
+                            st.stop() 
+                        except streamingData:
+                            st.write("Sorry Video is restricted")
+                            st.stop()
+                            
                         with zipfile.ZipFile(f"{k} Youtube videos.zip", mode="a") as archive:
                             archive.write(p)
                     try:        
@@ -219,7 +223,9 @@ else :
                         number=i
                         try:
                             download(url,"360p",option)
-                     
+                        except streamingData:
+                            st.write("Sorry Video is restricted")
+                            st.stop()
                         except:
                             st.write("Try Again")
                             st.stop()
