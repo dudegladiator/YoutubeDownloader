@@ -1,4 +1,4 @@
-pytube==12.1.1
+git+https://github.com/dudegladiator/pytube.git
 pathlib
 ffmpeg-python
 streamlit==1.18.1
